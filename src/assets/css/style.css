@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Outfit';
+    src: url('/static/fonts/Outfit-VariableFont_wght.ttf');
+}
+
+
+
+:root{
+    --bs-body-font-family:Outfit;
+    --bs-btn-bg:#004aad;
+    --bs-link-color:gray;
+    /* --bs-link-color:#004aad; */
+    /* --bs-nav-link-color:gray */
+
+
+}
+
+.content{
+    text-align:center;
+}
+
+.content .logo img{
+    width: 300px;
+}
+
+nav.navbar{
+    position:fixed;
+    width: 100%;
+    z-index:1000;
+    bottom: 0;
+    box-shadow: black 0px 10px 20px;
+}
+
+.nav-link.active{
+    color:#004aad
+}
