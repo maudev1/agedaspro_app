@@ -3,6 +3,20 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </nav> -->
-  <router-view/>
-</template>
+  <div>
+    <router-view />
+    <new-schedule />
 
+  </div>
+</template>
+<script>
+
+import NewSchedule from './components/NewSchedule.vue';
+
+export default {
+
+  components: { NewSchedule }
+}
+
+
+</script>
