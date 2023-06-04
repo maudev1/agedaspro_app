@@ -22,17 +22,15 @@
                     </div>
 
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="floatingInputValue" placeholder="campo obrigatorio"
-                            value="">
+                        <input type="text" class="form-control" id="floatingInputValue" v-model="form.customer_name" placeholder="campo obrigatorio">
                         <label for="floatingInputValue">Nome</label>
                     </div>
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control" id="floatingInputValue" placeholder="campo obrigatorio"
-                            value="">
+                        <input type="text" class="form-control" id="floatingInputValue" v-model="form.customer_phone" placeholder="campo obrigatorio">
                         <label for="floatingInputValue">Telefone ou Celular</label>
                     </div>
                     <div class="form-floating mb-2">
-                        <textarea class="form-control"></textarea>
+                        <textarea class="form-control"  v-model="form.customer_observation"></textarea>
                         <label for="floatingInputValue">Observação</label>
                     </div>
 
@@ -43,14 +41,22 @@
                     </div>
 
                     <div class="form-floating mb-2">
-                        <input type="date" class="form-control" id="floatingInputValue" placeholder="campo obrigatorio"
-                            value="">
+                        <input type="date" min="2023-06-4" list="date-list" class="form-control" id="floatingInputValue" v-model="form.schedule_date" placeholder="campo obrigatorio">
                         <label for="floatingInputValue">Data</label>
                     </div>
+                    <datalist id="date-list">
+                            <option value="">Amanhã</option>
+                            <option value="">Depois</option>
+
+                    </datalist>
 
                     <div class="form-floating mb-2">
-                        <input type="time" class="form-control" id="floatingInputValue" placeholder="campo obrigatorio"
-                            value="">
+                        <input class="form-control" type="time" list="time-list" v-model="form.time" placeholder="campo obrigatorio">
+                        <datalist id="time-list">
+                            <option value="09:00"></option>
+                            <option value="10:00"></option>
+
+                        </datalist>
                         <label for="floatingInputValue">Horário</label>
                     </div>
 
@@ -70,8 +76,45 @@
 export default {
     data() {
         return {
-            title: "Novo Agendamento"
+            title: "Novo Agendamento",
+            form:{
+                customer_name:'',
+                customer_phone:'',
+                customer_observation:'',
+                schedule_date:'',
+                schedule_time:''
 
+            },
+            schedules:[
+                {
+                    id:'01',
+                    date:'2023-06-4',
+                    time:'13:00'
+
+                },
+                {
+                    id:'02',
+                    date:'2023-06-4',
+                    time:'14:00'
+
+                },
+                {
+                    id:'03',
+                    date:'2023-06-4',
+                    time:'15:00'
+
+                }
+
+            ]
+        }
+    },
+    mounted() {
+
+    },
+    methods: {
+        fetchSchedules(){
+
+            
 
         }
 
