@@ -13,6 +13,8 @@
             </div>
             <hr>
             <div class="offcanvas-body">
+
+
                 <div class="container">
 
                     <div class="mb-4">
@@ -40,26 +42,16 @@
 
                     </div>
 
-                    <div class="form-floating mb-2">
-                        <input type="date" min="2023-06-4" list="date-list" class="form-control" id="floatingInputValue" v-model="form.schedule_date" placeholder="campo obrigatorio">
-                        <label for="floatingInputValue">Data</label>
+                    <div class="form-group mb-2">
+                        <Datepicker v-model="form.schedule_date" :enable-time-picker="false" utc />
                     </div>
-                    <datalist id="date-list">
-                            <option value="">Amanhã</option>
-                            <option value="">Depois</option>
-
-                    </datalist>
-
-                    <div class="form-floating mb-2">
-                        <input class="form-control" type="time" list="time-list" v-model="form.time" placeholder="campo obrigatorio">
-                        <datalist id="time-list">
-                            <option value="09:00"></option>
-                            <option value="10:00"></option>
-
-                        </datalist>
-                        <label for="floatingInputValue">Horário</label>
+                    <div class="form-group mb-2">
+                        <select id="form-schedule-time" v-model="form.schedule_time"  class="form-control">
+                            <option value="9:00">9:00</option>
+                            <option value="9:00">12:00</option>
+                            <option value="9:00">5:00</option>
+                        </select>    
                     </div>
-
 
                     <div class="form-group mt-4 mb-4 text-center">
                         <button type="submit" class="btn btn-primary">Agendar</button>
@@ -67,13 +59,18 @@
                     </div>
 
                 </div>
+
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import Datepicker from '@vuepic/vue-datepicker';
 export default {
+    components:{
+        Datepicker
+    },
     data() {
         return {
             title: "Novo Agendamento",
@@ -112,7 +109,9 @@ export default {
 
     },
     methods: {
-        fetchSchedules(){
+        newSchedule(){
+
+            
 
             
 

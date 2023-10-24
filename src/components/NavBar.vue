@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar">
+    <nav class="navbar bg-info.bg-gradient">
         <div class="container-fluid">
             <a clas="navbar-brand"><i class="fas fa-home"></i></a>
             <a clas="navbar-brand"><i class="fas fa-store"></i></a>

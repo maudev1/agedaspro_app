@@ -1,35 +1,15 @@
-import axios from "axios";
-// import AuthService from "./AuthService";
-
 export default {
 
-    makeRequest(url, method) {
+    makeRequest : async function(url, options) {
 
-        // let credentials = AuthService.getToken();
+        let response = await fetch(url, options);
 
-        return new Promise((resolve, reject) => {
+        if(response.ok){
+            return  await response.json();
 
-            let options = {
-                method: method,
-                url: url,
-                headers: {
-                    'Content-Type': 'appication/json;charset=utf-8',
-                    'Access-Control-Allow-Origin': '*',
-                    // 'Authorization' : `Bearer ${credentials}`
-                }
-            };
-
-            axios.request(options).then(function (response) {
-
-                resolve(response.data)
-
-            }).catch(function (error) {
-
-                reject(error);
-
-            });
-
-        })
+        }else{
+            console.log(response)
+        }
 
     },
 

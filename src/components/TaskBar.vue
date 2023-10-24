@@ -21,11 +21,11 @@
         <div class="container mb-2">
             <div v-for="schedule in schedules" :key="schedule.id" class="card mb-2">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">{{ schedule.customer }}</li>
+                    <li class="list-group-item">{{ schedule.description }}</li>
                 </ul>
 
                 <div class="card-body">
-                    <a href="#" class="card-link"><i class="fas fa-clock"></i>{{ schedule.hour }}</a>
+                    <a href="#" class="card-link"><i class="fas fa-clock"></i> {{ schedule.created_at }}</a>
                     <!-- <a href="#" class="card-link">13:10</a> -->
                 </div>
             </div>
@@ -37,7 +37,6 @@
 
 <script>
 
-// import httpService from '../http/service';
 
 export default {
     data() {
@@ -48,19 +47,16 @@ export default {
     },
     methods: {
         getSchedules() {
-            // httpService.makeRequest('/', 'GET').then((response) => {
+
+            let data = {
+                token:this.$store.state.user.accessToken
+            };
+
+            console.log(data)
+
+            // httpService.makeRequest('http://localhost:8000/api/schedule', 'GET', data).then((response) => {
             //     this.schedules = response
             // });
-
-            this.schedules = [
-                {
-                    id:'1',
-                    customer: 'zequinha',
-                    type: 1,
-                    date: '',
-                    hour: '14:30'
-                }
-            ]
         },
         getDate(){
 
